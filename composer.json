@@ -1,0 +1,28 @@
+{
+    "name": "yperevoznikov/metadata",
+    "description": "Module manages meta data for pages: title, description, seo-text",
+    "type": "library",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Yuriy Perevoznikov",
+            "email": "yuriless@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "repositories": [
+        {"type": "vcs", "url": "file:///Users/yuriy/WorkShop/php/composer/storage-engine"}
+    ],
+    "require": {
+        "yperevoznikov/storage-engine": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.5"
+    },
+    "autoload": {
+        "psr-4": {"YPMetadata\\": "src"}
+    },
+    "autoload-dev": {
+        "psr-4": {"YPMetadata\\": "tests"}
+    }
+}

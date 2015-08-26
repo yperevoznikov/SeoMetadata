@@ -1,0 +1,12 @@
+# Metadata - seo data for web pages
+
+## Installation
+
+CREATE TABLE `ymetadata_rows` (
+    `id` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    `identity` VARCHAR(128) DEFAULT NULL,
+    `type` VARCHAR(128) DEFAULT NULL,
+    `seo_text` TEXT,
+    `title` VARCHAR(255) DEFAULT NULL,
+    `description` VARCHAR(255) DEFAULT NULL,
+);
