@@ -76,7 +76,7 @@ class Metadata {
      * @return null|string
      */
     public function getSeoText($default=null) {
-		return isset($this->seoText) ? $this->seoText : $default;
+		return (isset($this->seoText) && !empty($this->seoText)) ? $this->seoText : $default;
 	}
 
     /**
@@ -99,7 +99,7 @@ class Metadata {
      * @return null|string
      */
     public function getTitle($default=null) {
-		return isset($this->title) ? $this->title : $default;
+		return (isset($this->title) && !empty($this->title)) ? $this->title : $default;
 	}
 
     /**
@@ -122,7 +122,7 @@ class Metadata {
      * @return null|string
      */
     public function getDescription($default=null) {
-		return isset($this->description) ? $this->description : $default;
+		return (isset($this->description) && !empty($this->description)) ? $this->description : $default;
 	}
 
     /**
