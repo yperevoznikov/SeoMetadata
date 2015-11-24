@@ -1,6 +1,6 @@
 <?php
 
-namespace YPMetadata;
+namespace YPSeoMetadata;
 
 
 /**
@@ -9,7 +9,7 @@ namespace YPMetadata;
  */
 class Metadata {
 
-    const DOMAIN = 'ypmetadata_items';
+    const DOMAIN = 'YPSeoMetadata_items';
 
     /**
      * @var bool
@@ -42,11 +42,11 @@ class Metadata {
 	private $description;
 
     /**
-     * @param \YPStorageEngine\IClient $storage
+     * @param \YPFlatStorage\IClient $storage
      * @param $identity
      * @param $type
      */
-    public function __construct(\YPStorageEngine\IClient $storage, $identity, $type=null, $fields=array()) {
+    public function __construct(\YPFlatStorage\IClient $storage, $identity, $type=null, $fields=array()) {
         $this->storage = $storage;
         $this->identity = $identity;
         $this->type = $type;

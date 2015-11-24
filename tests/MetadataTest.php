@@ -1,18 +1,18 @@
 <?php
 
-namespace YPMetadata;
+namespace YPSeoMetadata;
 
-use \YPStorageEngine;
+use \YPFlatStorage;
 
 class MetadataTest extends \PHPUnit_Framework_TestCase {
 
 	/**
-	 * @var \YPStorageEngine\ClientBlackhole
+	 * @var \YPFlatStorage\ClientBlackhole
 	 */
 	private $clientBlackhole;
 
 	/**
-	 * @var \YPMetadata\Metadata
+	 * @var \YPSeoMetadata\Metadata
 	 */
 	private $blackholeMetadata;
 
@@ -20,12 +20,12 @@ class MetadataTest extends \PHPUnit_Framework_TestCase {
 	 * Set up environment for tests
 	 */
 	public function setUp() {
-		$this->clientBlackhole = new \YPStorageEngine\ClientBlackhole();
-		$this->blackholeMetadata = new \YPMetadata\Metadata($this->clientBlackhole, 'identity', 'type');
+		$this->clientBlackhole = new \YPFlatStorage\ClientBlackhole();
+		$this->blackholeMetadata = new \YPSeoMetadata\Metadata($this->clientBlackhole, 'identity', 'type');
 	}
 
 	/**
-	 * 	@covers \YPMetadata\Metadata::__construct
+	 * 	@covers \YPSeoMetadata\Metadata::__construct
 	 */
 	public function testConstructor() {
 
@@ -35,38 +35,38 @@ class MetadataTest extends \PHPUnit_Framework_TestCase {
             'description' => 'description',
         );
 
-		$metadata = new \YPMetadata\Metadata($this->clientBlackhole, '3', 'type', $fields);
-		$this->assertInstanceOf('\YPMetadata\Metadata', $metadata);
+		$metadata = new \YPSeoMetadata\Metadata($this->clientBlackhole, '3', 'type', $fields);
+		$this->assertInstanceOf('\YPSeoMetadata\Metadata', $metadata);
 
 	}
 
     /**
-     * @covers \YPMetadata\Metadata::__destruct
-     * @covers \YPMetadata\Metadata::forceSave
+     * @covers \YPSeoMetadata\Metadata::__destruct
+     * @covers \YPSeoMetadata\Metadata::forceSave
      */
     public function testDestructor() {
 
         // #1 when we update Metadata class update function has to be called once
-        $stubStorage = $this->getMockForAbstractClass('\YPStorageEngine\IClient');
+        $stubStorage = $this->getMockForAbstractClass('\YPFlatStorage\IClient');
         $stubStorage->expects($this->once())
             ->method('upsert');
 
-        $metadata = new \YPMetadata\Metadata($stubStorage, 'someIdentity');
+        $metadata = new \YPSeoMetadata\Metadata($stubStorage, 'someIdentity');
         $metadata->setTitle('some title');
 
         // #1 when we DO NOT update Metadata class update function shouldn't be called
-        $stubStorage = $this->getMockForAbstractClass('\YPStorageEngine\IClient');
+        $stubStorage = $this->getMockForAbstractClass('\YPFlatStorage\IClient');
         $stubStorage->expects($this->never())
             ->method('upsert');
 
-        $metadata = new \YPMetadata\Metadata($stubStorage, 'someIdentity');
+        $metadata = new \YPSeoMetadata\Metadata($stubStorage, 'someIdentity');
 
     }
 
 	/**
-	 * 	@covers \YPMetadata\Metadata::getSeoText
-	 * 	@covers \YPMetadata\Metadata::setSeoText
-	 * 	@covers \YPMetadata\Metadata::deleteSeoText
+	 * 	@covers \YPSeoMetadata\Metadata::getSeoText
+	 * 	@covers \YPSeoMetadata\Metadata::setSeoText
+	 * 	@covers \YPSeoMetadata\Metadata::deleteSeoText
 	 */
 	public function testSetGetDeleteSeoText() {
 		
@@ -87,9 +87,9 @@ class MetadataTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * 	@covers \YPMetadata\Metadata::getTitle
-	 * 	@covers \YPMetadata\Metadata::setTitle
-	 * 	@covers \YPMetadata\Metadata::deleteTitle
+	 * 	@covers \YPSeoMetadata\Metadata::getTitle
+	 * 	@covers \YPSeoMetadata\Metadata::setTitle
+	 * 	@covers \YPSeoMetadata\Metadata::deleteTitle
 	 */
 	public function testSetGetDeleteTitle() {
 
@@ -111,9 +111,9 @@ class MetadataTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * 	@covers \YPMetadata\Metadata::getDescription
-	 * 	@covers \YPMetadata\Metadata::setDescription
-	 * 	@covers \YPMetadata\Metadata::deleteDescription
+	 * 	@covers \YPSeoMetadata\Metadata::getDescription
+	 * 	@covers \YPSeoMetadata\Metadata::setDescription
+	 * 	@covers \YPSeoMetadata\Metadata::deleteDescription
 	 */
 	public function testSetGetDeleteDescription() {
 
@@ -134,14 +134,14 @@ class MetadataTest extends \PHPUnit_Framework_TestCase {
 	}
 
     /**
-     * @covers \YPMetadata\Metadata::getIdentity
+     * @covers \YPSeoMetadata\Metadata::getIdentity
      */
     public function testGetIdentity() {
         $this->assertEquals('identity', $this->blackholeMetadata->getIdentity());
     }
 
     /**
-     * @covers \YPMetadata\Metadata::getType
+     * @covers \YPSeoMetadata\Metadata::getType
      */
     public function testGetType() {
         $this->assertEquals('type', $this->blackholeMetadata->getType());

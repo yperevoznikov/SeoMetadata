@@ -1,18 +1,18 @@
 <?php
 
-namespace YPMetadata;
-use \YPStorageEngine;
+namespace YPSeoMetadata;
+use \YPFlatStorage;
 
 class Manager {
 
-    const DOMAIN = 'ypmetadata_items';
+    const DOMAIN = 'YPSeoMetadata_items';
 
 	/**
-	 * @var \YPStorageEngine\IClient
+	 * @var \YPFlatStorage\IClient
 	 */
 	private $storage = null;
 	
-	public function __construct(\YPStorageEngine\IClient $storage) {
+	public function __construct(\YPFlatStorage\IClient $storage) {
 		$this->storage = $storage;
 	}
 

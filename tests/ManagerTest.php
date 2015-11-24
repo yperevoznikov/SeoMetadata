@@ -1,46 +1,46 @@
 <?php
 
-namespace YPMetadata;
+namespace YPSeoMetadata;
 
-use \YPStorageEngine;
+use \YPFlatStorage;
 
 /**
- * 	@covers \YPMetadata\Manager
+ * 	@covers \YPSeoMetadata\Manager
  */
 class ManagerTest extends \PHPUnit_Framework_TestCase {
 
 	/**
-	 * @var \YPStorageEngine\ClientBlackhole
+	 * @var \YPFlatStorage\ClientBlackhole
 	 */
 	private $clientBlackhole;
 
 	/**
-	 * @var \YPMetadata\Manager
+	 * @var \YPSeoMetadata\Manager
 	 */
 	private $manager;
 
 	public function setUp() {
-		$this->clientBlackhole = new \YPStorageEngine\ClientBlackhole();
-		$this->manager = new \YPMetadata\Manager($this->clientBlackhole);
+		$this->clientBlackhole = new \YPFlatStorage\ClientBlackhole();
+		$this->manager = new \YPSeoMetadata\Manager($this->clientBlackhole);
 	}
 
 	/**
-	 * 	@covers \YPMetadata\Manager::__construct
+	 * 	@covers \YPSeoMetadata\Manager::__construct
 	 */
 	public function testConstructor() {
 		
-		$mnr = new \YPMetadata\Manager($this->clientBlackhole);
+		$mnr = new \YPSeoMetadata\Manager($this->clientBlackhole);
 
-		$this->assertInstanceOf('\YPMetadata\Manager', $mnr);
+		$this->assertInstanceOf('\YPSeoMetadata\Manager', $mnr);
 
 	}
 
 	/**
-     * @covers \YPMetadata\Manager::getMetadata
+     * @covers \YPSeoMetadata\Manager::getMetadata
 	 */
 	public function testGetMetadata() {
 
-        $storageEngine = new YPStorageEngine\ClientSessionOnly();
+        $storageEngine = new YPFlatStorage\ClientSessionOnly();
         $manager = new Manager($storageEngine);
 
         $metadata = $manager->getMetadata('some-id');
@@ -51,7 +51,7 @@ class ManagerTest extends \PHPUnit_Framework_TestCase {
         $title = $metadata->getTitle();
 
         $this->assertEquals('title #1', $title);
-        $this->assertInstanceOf('\YPMetadata\Metadata', $metadata);
+        $this->assertInstanceOf('\YPSeoMetadata\Metadata', $metadata);
 
 
 

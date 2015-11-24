@@ -1,5 +1,5 @@
 {
-    "name": "yperevoznikov/metadata",
+    "name": "yperevoznikov/seo-metadata",
     "description": "Module manages meta data for pages: title, description, seo-text",
     "type": "library",
     "license": "proprietary",
@@ -9,20 +9,18 @@
             "email": "yuriless@gmail.com"
         }
     ],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "repositories": [
-        {"type": "vcs", "url": "file:///Users/yuriy/WorkShop/php/composer/storage-engine"}
+        {"type": "vcs", "url": "https://github.com/yperevoznikov/FlatStorage"}
     ],
     "require": {
-        "yperevoznikov/storage-engine": "*"
+        "yperevoznikov/flat-storage": "v0.9.0-beta"
     },
-    "require-dev": {
-        "phpunit/phpunit": "~4.5"
-    },
+    "require-dev": {},
     "autoload": {
-        "psr-4": {"YPMetadata\\": "src"}
+        "psr-4": {"YPSeoMetadata\\": "src"}
     },
     "autoload-dev": {
-        "psr-4": {"YPMetadata\\": "tests"}
+        "psr-4": {"YPSeoMetadata\\": "tests"}
     }
 }
