@@ -1,8 +1,8 @@
 {
     "name": "yperevoznikov/seo-metadata",
     "description": "Module manages meta data for pages: title, description, seo-text",
-    "type": "library",
-    "license": "proprietary",
+    "type": "Library",
+    "license": "MIT",
     "authors": [
         {
             "name": "Yuriy Perevoznikov",
