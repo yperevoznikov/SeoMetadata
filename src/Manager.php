@@ -5,7 +5,7 @@ use \YPFlatStorage;
 
 class Manager {
 
-    const DOMAIN = 'YPSeoMetadata_items';
+    const DOMAIN = 'YPMetadata_items';
 
 	/**
 	 * @var \YPFlatStorage\IClient

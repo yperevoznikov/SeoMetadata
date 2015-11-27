@@ -17,5 +17,5 @@ CREATE TABLE YPMetadata_items (
     title VARCHAR(255) DEFAULT NULL,  
     description VARCHAR(255) DEFAULT NULL  
 );  
-CREATE INDEX identity_type_index ON YPSeoMetadata_items (identity, type);  
+CREATE INDEX identity_type_index ON YPMetadata_items (identity, type);  
 ```
