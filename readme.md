@@ -9,7 +9,7 @@
 ## Installation
 For MySql driver
 ```
-CREATE TABLE YPSeoMetadata_items (  
+CREATE TABLE YPMetadata_items (  
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,  
     identity VARCHAR(128) DEFAULT NULL,  
     type VARCHAR(128) DEFAULT NULL,  

@@ -9,7 +9,7 @@ namespace YPSeoMetadata;
  */
 class Metadata {
 
-    const DOMAIN = 'YPSeoMetadata_items';
+    const DOMAIN = 'YPMetadata_items';
 
     /**
      * @var bool
